@@ -259,7 +259,7 @@ if (reservationForm) {
         
         try {
             // Send to Google Sheets using Google Apps Script
-            const response = await fetch('https://script.google.com/macros/s/AKfycbw4Jp2tL8fRgJpBmzZvqXQ7hH9sV6KjYlQ3w5dN0/exec', {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbzD8BiRG1ziQjGm6JyYgEMp9bENT-Pz5cBDnuvZPqARX0e-Sl91zm0i_XrXd1PB3kCf/exec', {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: {
