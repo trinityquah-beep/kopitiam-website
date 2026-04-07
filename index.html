@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopitiam Rasa - Authentic Malaysian Coffee Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Kopitiam<span>Rasa</span></a>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#order" class="btn-order">Order Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Authentic Malaysian <span>Kopitiam</span> Experience</h1>
+                <p>Since 1985, serving traditional coffee, toast, and local delicacies with love and heritage.</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn-primary">View Our Menu</a>
+                    <a href="#contact" class="btn-secondary">Visit Us Today</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Traditional Kopitiam Interior">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Story</h2>
+                <p>Three generations of coffee brewing tradition</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Traditional Coffee Making">
+                </div>
+                <div class="about-text">
+                    <h3>Since 1985 in the Heart of Klang</h3>
+                    <p>Kopitiam Rasa was founded by Mr. Lim Ah Kow, who brought his family's secret coffee recipe from Penang to Klang. What started as a small stall has grown into a beloved institution where generations of Klang residents have gathered.</p>
+                    <p>We still use the traditional sock filter method to brew our coffee, paired with charcoal-toasted bread and homemade kaya (coconut jam). Every cup tells a story of Malaysian heritage.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-coffee"></i>
+                            <h4>Traditional Brew</h4>
+                            <p>Sock-filtered coffee with robust flavor</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-bread-slice"></i>
+                            <h4>Fresh Daily</h4>
+                            <p>Baked goods made fresh every morning</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <h4>Family Recipe</h4>
+                            <p>Secret recipes passed down for generations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Signature Menu</h2>
+                <p>Traditional favorites that never go out of style</p>
+            </div>
+            <div class="menu-tabs">
+                <button class="tab-btn active" data-category="drinks">Drinks</button>
+                <button class="tab-btn" data-category="food">Food</button>
+                <button class="tab-btn" data-category="desserts">Desserts</button>
+            </div>
+            <div class="menu-items">
+                <!-- Drinks -->
+                <div class="menu-category active" id="drinks">
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Kopi-O</h3>
+                            <p>Traditional black coffee with sugar</p>
+                            <span class="price">RM 3.50</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Kopi-C</h3>
+                            <p>Coffee with evaporated milk</p>
+                            <span class="price">RM 4.00</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Teh Tarik</h3>
+                            <p>Pulled tea with condensed milk</p>
+                            <span class="price">RM 4.50</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Milo Dinosaur</h3>
+                            <p>Iced Milo with extra Milo powder</p>
+                            <span class="price">RM 5.50</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Food -->
+                <div class="menu-category" id="food">
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Kaya Toast Set</h3>
+                            <p>Toast with kaya & butter, soft-boiled eggs, coffee</p>
+                            <span class="price">RM 8.90</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Nasi Lemak</h3>
+                            <p>Coconut rice with sambal, anchovies, peanuts, egg</p>
+                            <span class="price">RM 7.50</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Roti Canai</h3>
+                            <p>Flaky flatbread with dhal curry</p>
+                            <span class="price">RM 3.50</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Char Kway Teow</h3>
+                            <p>Stir-fried flat rice noodles with prawns</p>
+                            <span class="price">RM 9.90</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Desserts -->
+                <div class="menu-category" id="desserts">
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Cendol</h3>
+                            <p>Shaved ice with green rice flour jelly, coconut milk</p>
+                            <span class="price">RM 5.50</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Apam Balik</h3>
+                            <p>Turnover pancake with peanuts and sugar</p>
+                            <span class="price">RM 4.50</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Kuih Lapis</h3>
+                            <p>Steamed layered cake</p>
+                            <span class="price">RM 3.50</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Pisang Goreng</h3>
+                            <p>Deep-fried banana fritters</p>
+                            <span class="price">RM 4.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Kopitiam</h2>
+                <p>Experience the authentic atmosphere</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coffee Preparation">
+                    <div class="gallery-overlay">
+                        <h4>Traditional Brewing</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kopitiam Interior">
+                    <div class="gallery-overlay">
+                        <h4>Cozy Interior</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Food Presentation">
+                    <div class="gallery-overlay">
+                        <h4>Fresh Food</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Customers Enjoying">
+                    <div class="gallery-overlay">
+                        <h4>Happy Customers</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visit Us</h2>
+                <p>We'd love to serve you a cup of tradition</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>18 Jalan Klang Sentral 2/KU5, Klang, Selangor, Malaysia</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Opening Hours</h4>
+                            <p>Monday - Sunday: 6:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+60 3-1234 5678</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>hello@kopitiamrasa.com</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <div class="map-placeholder">
+                        <h4>Map Location</h4>
+                        <p>Klang, Selangor, Malaysia</p>
+                        <div class="map-image">
+                            <!-- In a real website, you would embed Google Maps here -->
+                            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Map Location">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">Kopitiam<span>Rasa</span></a>
+                    <p>Preserving Klang's coffee culture since 1985.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe for promotions and news</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kopitiam Rasa. All rights reserved. | Designed with <i class="fas fa-heart"></i> for Malaysian coffee lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Order Online</h2>
+            <p>Coming soon! We're working on our online ordering system.</p>
+            <p>In the meantime, please call us at <strong>+60 3-1234 5678</strong> to place your order.</p>
+            <button class="btn-primary close-modal-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
