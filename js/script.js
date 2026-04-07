@@ -270,12 +270,16 @@ if (reservationForm) {
         };
         
         try {
+            console.log('Submitting form data:', formData);
+            
             // Use a different approach to bypass CORS
             // Create URL-encoded form data
             const formBody = new URLSearchParams();
             Object.keys(formData).forEach(key => {
                 formBody.append(key, formData[key]);
             });
+            
+            console.log('Form body:', formBody.toString());
             
             // Use fetch with no-cors and simple content type
             const response = await fetch('https://script.google.com/macros/s/AKfycbzD8BiRG1ziQjGm6JyYgEMp9bENT-Pz5cBDnuvZPqARX0e-Sl91zm0i_XrXd1PB3kCf/exec', {
@@ -287,32 +291,42 @@ if (reservationForm) {
                 body: formBody.toString()
             });
             
+            console.log('Fetch completed (no-cors mode)');
+            
             // With no-cors mode, we can't read the response
             // But we assume it succeeded if no network error
             
             // Show success message
             formMessage.textContent = '✅ Reservation submitted successfully! We will confirm via phone shortly.';
             formMessage.className = 'form-message success';
+            console.log('Success message shown');
             
             // Reset form
             reservationForm.reset();
+            console.log('Form reset');
             
             // Set date to today again
-            document.getElementById('date').min = today;
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                dateInput.min = today;
+            }
             
         } catch (error) {
+            console.error('Reservation error:', error);
             // Show error message
             formMessage.textContent = '❌ There was an error submitting your reservation. Please call us directly at +60 3-1234 5678.';
             formMessage.className = 'form-message error';
-            console.error('Reservation error:', error);
         } finally {
+            console.log('Resetting button state');
             // Reset button state
-            submitText.style.display = 'inline';
+            submitText.style.display = 'inline-block';
             loadingSpinner.style.display = 'none';
             submitBtn.disabled = false;
             
             // Scroll to message
-            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            if (formMessage.textContent) {
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
         }
     });
 }
