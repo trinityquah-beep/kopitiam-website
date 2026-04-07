@@ -39,9 +39,19 @@ kopitiam-website/
 
 ## How to Use
 
+### Local Testing
 1. Simply open `index.html` in any modern web browser
 2. No build process or dependencies required
 3. All images are loaded from Unsplash CDN (replace with your own images in production)
+
+### Publishing to GitHub Pages
+This website is configured for easy deployment to GitHub Pages:
+
+1. **Quick Guide:** See `PUBLISH_TO_GITHUB.md` for one-page instructions
+2. **Detailed Guide:** See `GITHUB_PUBLISH_GUIDE.md` for complete step-by-step guide
+
+Once published, your website will be available at:
+`https://YOUR_USERNAME.github.io/kopitiam-website/`
 
 ## Customization
 
