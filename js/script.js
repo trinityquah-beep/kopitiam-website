@@ -271,15 +271,19 @@ if (reservationForm) {
             if (response.ok) {
                 const result = await response.json();
                 
-                // Show success message
-                formMessage.textContent = '✅ Reservation submitted successfully! We will confirm via phone shortly.';
-                formMessage.className = 'form-message success';
-                
-                // Reset form
-                reservationForm.reset();
-                
-                // Set date to today again
-                document.getElementById('date').min = today;
+                if (result.success) {
+                    // Show success message
+                    formMessage.textContent = '✅ Reservation submitted successfully! We will confirm via phone shortly.';
+                    formMessage.className = 'form-message success';
+                    
+                    // Reset form
+                    reservationForm.reset();
+                    
+                    // Set date to today again
+                    document.getElementById('date').min = today;
+                } else {
+                    throw new Error(result.error || 'Unknown error');
+                }
             } else {
                 throw new Error(`Server responded with ${response.status}`);
             }
