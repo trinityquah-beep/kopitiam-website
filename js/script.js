@@ -231,11 +231,23 @@ const submitText = document.getElementById('submitText');
 const loadingSpinner = document.getElementById('loadingSpinner');
 const formMessage = document.getElementById('formMessage');
 
+console.log('Reservation form elements:', {
+    reservationForm: !!reservationForm,
+    submitBtn: !!submitBtn,
+    submitText: !!submitText,
+    loadingSpinner: !!loadingSpinner,
+    formMessage: !!formMessage
+});
+
 // Set minimum date to today
 const today = new Date().toISOString().split('T')[0];
-document.getElementById('date').min = today;
+const dateInput = document.getElementById('date');
+if (dateInput) {
+    dateInput.min = today;
+}
 
 if (reservationForm) {
+    console.log('Adding submit event listener to reservation form');
     reservationForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
