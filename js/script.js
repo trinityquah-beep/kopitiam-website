@@ -223,3 +223,88 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Reservation Form Handling
+const reservationForm = document.getElementById('reservationForm');
+const submitBtn = document.getElementById('submitBtn');
+const submitText = document.getElementById('submitText');
+const loadingSpinner = document.getElementById('loadingSpinner');
+const formMessage = document.getElementById('formMessage');
+
+// Set minimum date to today
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('date').min = today;
+
+if (reservationForm) {
+    reservationForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Show loading state
+        submitText.style.display = 'none';
+        loadingSpinner.style.display = 'inline-block';
+        submitBtn.disabled = true;
+        formMessage.textContent = '';
+        formMessage.className = 'form-message';
+        
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value.trim(),
+            phone: document.getElementById('phone').value.trim(),
+            people: document.getElementById('people').value,
+            date: document.getElementById('date').value,
+            time: document.getElementById('time').value,
+            message: document.getElementById('message').value.trim(),
+            timestamp: new Date().toISOString()
+        };
+        
+        try {
+            // Send to Google Sheets using Google Apps Script
+            const response = await fetch('https://script.google.com/macros/s/AKfycbw4Jp2tL8fRgJpBmzZvqXQ7hH9sV6KjYlQ3w5dN0/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            // Since we're using no-cors, we can't read the response
+            // But we assume it succeeded
+            
+            // Show success message
+            formMessage.textContent = '✅ Reservation submitted successfully! We will confirm via phone shortly.';
+            formMessage.className = 'form-message success';
+            
+            // Reset form
+            reservationForm.reset();
+            
+            // Set date to today again
+            document.getElementById('date').min = today;
+            
+        } catch (error) {
+            // Show error message
+            formMessage.textContent = '❌ There was an error submitting your reservation. Please call us directly at +60 3-1234 5678.';
+            formMessage.className = 'form-message error';
+            console.error('Reservation error:', error);
+        } finally {
+            // Reset button state
+            submitText.style.display = 'inline';
+            loadingSpinner.style.display = 'none';
+            submitBtn.disabled = false;
+            
+            // Scroll to message
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    });
+}
+
+// Add reservation link to navigation
+const navMenu = document.getElementById('navMenu');
+if (navMenu) {
+    const reservationLink = document.createElement('li');
+    reservationLink.innerHTML = '<a href="#reservation">Reservation</a>';
+    
+    // Insert before the Order Now button
+    const orderBtn = document.querySelector('.btn-order').parentElement;
+    navMenu.insertBefore(reservationLink, orderBtn);
+}
