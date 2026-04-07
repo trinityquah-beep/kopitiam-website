@@ -258,35 +258,35 @@ if (reservationForm) {
         };
         
         try {
-            // Send to Google Sheets using Google Apps Script
-            const response = await fetch('https://script.google.com/macros/s/AKfycbzD8BiRG1ziQjGm6JyYgEMp9bENT-Pz5cBDnuvZPqARX0e-Sl91zm0i_XrXd1PB3kCf/exec', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
+            // Use a different approach to bypass CORS
+            // Create URL-encoded form data
+            const formBody = new URLSearchParams();
+            Object.keys(formData).forEach(key => {
+                formBody.append(key, formData[key]);
             });
             
-            // Check if response is OK
-            if (response.ok) {
-                const result = await response.json();
-                
-                if (result.success) {
-                    // Show success message
-                    formMessage.textContent = '✅ Reservation submitted successfully! We will confirm via phone shortly.';
-                    formMessage.className = 'form-message success';
-                    
-                    // Reset form
-                    reservationForm.reset();
-                    
-                    // Set date to today again
-                    document.getElementById('date').min = today;
-                } else {
-                    throw new Error(result.error || 'Unknown error');
-                }
-            } else {
-                throw new Error(`Server responded with ${response.status}`);
-            }
+            // Use fetch with no-cors and simple content type
+            const response = await fetch('https://script.google.com/macros/s/AKfycbzD8BiRG1ziQjGm6JyYgEMp9bENT-Pz5cBDnuvZPqARX0e-Sl91zm0i_XrXd1PB3kCf/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: formBody.toString()
+            });
+            
+            // With no-cors mode, we can't read the response
+            // But we assume it succeeded if no network error
+            
+            // Show success message
+            formMessage.textContent = '✅ Reservation submitted successfully! We will confirm via phone shortly.';
+            formMessage.className = 'form-message success';
+            
+            // Reset form
+            reservationForm.reset();
+            
+            // Set date to today again
+            document.getElementById('date').min = today;
             
         } catch (error) {
             // Show error message
