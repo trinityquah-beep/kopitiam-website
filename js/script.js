@@ -261,25 +261,28 @@ if (reservationForm) {
             // Send to Google Sheets using Google Apps Script
             const response = await fetch('https://script.google.com/macros/s/AKfycbzD8BiRG1ziQjGm6JyYgEMp9bENT-Pz5cBDnuvZPqARX0e-Sl91zm0i_XrXd1PB3kCf/exec', {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData)
             });
             
-            // Since we're using no-cors, we can't read the response
-            // But we assume it succeeded
-            
-            // Show success message
-            formMessage.textContent = '✅ Reservation submitted successfully! We will confirm via phone shortly.';
-            formMessage.className = 'form-message success';
-            
-            // Reset form
-            reservationForm.reset();
-            
-            // Set date to today again
-            document.getElementById('date').min = today;
+            // Check if response is OK
+            if (response.ok) {
+                const result = await response.json();
+                
+                // Show success message
+                formMessage.textContent = '✅ Reservation submitted successfully! We will confirm via phone shortly.';
+                formMessage.className = 'form-message success';
+                
+                // Reset form
+                reservationForm.reset();
+                
+                // Set date to today again
+                document.getElementById('date').min = today;
+            } else {
+                throw new Error(`Server responded with ${response.status}`);
+            }
             
         } catch (error) {
             // Show error message
