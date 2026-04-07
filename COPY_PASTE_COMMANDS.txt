@@ -1,0 +1,31 @@
+# 🚀 COPY AND PASTE THESE COMMANDS TO PUBLISH
+
+# 1. First, create GitHub repository:
+#    Visit: https://github.com/new
+#    Name: kopitiam-website
+#    DO NOT initialize with README
+#    Click "Create repository"
+
+# 2. Then run these commands one by one:
+
+cd /data/.openclaw/workspace/kopitiam-website
+
+git remote add origin https://github.com/YOUR_USERNAME/kopitiam-website.git
+
+git push -u origin main
+
+# When asked for password, use your GitHub password.
+# If you have 2FA, use a Personal Access Token from:
+# https://github.com/settings/tokens
+
+# 3. Enable GitHub Pages:
+#    Visit: https://github.com/YOUR_USERNAME/kopitiam-website/settings/pages
+#    Branch: main, Folder: / (root)
+#    Click "Save"
+
+# 4. Your website will be at:
+#    https://YOUR_USERNAME.github.io/kopitiam-website/
+
+# Wait 1-2 minutes after step 3.
+
+# 🎉 DONE! Your kopitiam website is live on GitHub!
